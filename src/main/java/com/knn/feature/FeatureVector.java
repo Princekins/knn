@@ -2,9 +2,6 @@ package com.knn.feature;
 
 import com.knn.util.FeatureType;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * FeatureVector
  *
@@ -12,44 +9,30 @@ import java.util.Map;
  * @version 1.0
  */
 public class FeatureVector<T> extends AbstractFeature<T> {
-    private final Map<FeatureType, Feature<?>> features = new HashMap<>();
+    private final FeatureSet features;
 
     public FeatureVector(FeatureType type, T value) {
+        this(type, value, new FeatureSet());
+    }
+
+    public FeatureVector(FeatureType type, T value, FeatureSet features) {
         super(type, value);
-    }
-
-    public FeatureVector<T> set(FeatureType type, Feature<?> feature) {
-        if (type == null || feature == null)
+        if (features == null)
             throw new IllegalArgumentException();
-        features.put(type, feature);
-        return this;
+        this.features = features;
     }
 
-    public <T> Feature<T> get(FeatureType type) {
-        return (Feature<T>) features.get(type);
-    }
-
-    public boolean contains(FeatureType type) {
-        return features.containsKey(type);
+    public FeatureSet features() {
+        return features;
     }
 
     @Override
     public double position() {
-        return contains(type()) ? get(type()).position() : 0;
+        return features().contains(type()) ? features().get(type()).position() : 0;
     }
 
     @Override
     public double distanceTo(Feature<T> feature) {
-        if (!(feature instanceof FeatureVector))
-            return contains(feature.type()) ? this.<T>get(feature.type()).distanceTo(feature) : Double.MAX_VALUE;
-        FeatureVector<T> vector = (FeatureVector<T>) feature;
-        double sum = 0.0;
-        for (Map.Entry<FeatureType, Feature<?>> entry : features.entrySet())
-            if (vector.contains(entry.getKey()))
-                sum += Math.pow(entry.getValue().distanceTo(vector.get(entry.getKey())), 2);
-        for (Map.Entry<FeatureType, Feature<?>> entry : vector.features.entrySet())
-            if (!contains(entry.getKey()))
-                sum += Math.pow(vector.get(entry.getKey()).position(), 2);
-        return Math.sqrt(sum);
+        return Features.distance(features(), feature);
     }
 }

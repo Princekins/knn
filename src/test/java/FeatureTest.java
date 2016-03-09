@@ -1,3 +1,5 @@
+import com.knn.Classification;
+import com.knn.FeatureSpace;
 import com.knn.feature.Feature;
 import com.knn.feature.FeatureVector;
 import com.knn.feature.Features;
@@ -13,9 +15,9 @@ public class FeatureTest {
     public static void main(String[] args) {
         Feature<Double> feature = Features.fromDouble(24.0);
         Feature<Double> feature2 = Features.fromDouble(48.0);
-        System.out.println(feature.distanceTo(feature2));
         FeatureVector<Class<?>> vector = Features.fromFeatures(PrimitiveType.OBJECT, Object.class, feature);
         FeatureVector<Class<?>> vector2 = Features.fromFeatures(PrimitiveType.OBJECT, Object.class, feature2);
-        System.out.println(vector.distanceTo(vector2));
+        FeatureSpace space = new FeatureSpace(vector, vector2);
+        Classification classification = space.classify(Features.asSet(Features.fromDouble(30)), 4);
     }
 }

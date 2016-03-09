@@ -13,8 +13,6 @@ public abstract class AbstractFeature<T> implements Feature<T> {
     private final T value;
 
     protected AbstractFeature(FeatureType type, T value) {
-        if (type == null || value == null)
-            throw new IllegalArgumentException();
         this.type = type;
         this.value = value;
     }
@@ -30,11 +28,16 @@ public abstract class AbstractFeature<T> implements Feature<T> {
     }
 
     @Override
+    public double distanceTo(double position) {
+        return Math.abs(position() - position);
+    }
+
+    @Override
     public double distanceTo(Feature<T> feature) {
         if (feature == null)
             return Double.MAX_VALUE;
         if (feature instanceof FeatureVector)
-            return ((FeatureVector) feature).contains(type()) ? Math.abs(position() - ((FeatureVector) feature).get(type()).position()) : Double.MAX_VALUE;
-        return Math.abs(position() - feature.position());
+            return ((FeatureVector) feature).features().contains(type()) ? distanceTo(((FeatureVector) feature).features().get(type()).position()) : Double.MAX_VALUE;
+        return distanceTo(feature.position());
     }
 }

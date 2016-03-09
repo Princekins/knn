@@ -15,5 +15,7 @@ public interface Feature<T> {
 
     public double position();
 
+    public double distanceTo(double position);
+
     public double distanceTo(Feature<T> feature);
 }
