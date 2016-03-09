@@ -31,6 +31,23 @@ public class Features {
         return new NumericFeature<>(PrimitiveType.DOUBLE, d);
     }
 
+    public static NumericFeature<Short> fromNumber(short s) {
+        return new NumericFeature<>(PrimitiveType.NUMBER, s);
+    }
+
+    public static NumericFeature<Integer> fromNumber(int i) {
+        return new NumericFeature<>(PrimitiveType.NUMBER, i);
+    }
+
+    public static NumericFeature<Float> fromNumber(float f) {
+        return new NumericFeature<>(PrimitiveType.NUMBER, f);
+    }
+
+    public static NumericFeature<Double> fromNumber(double d) {
+        return new NumericFeature<>(PrimitiveType.NUMBER, d);
+    }
+
+
     public static <T> FeatureVector<T> fromFeatures(FeatureType type, T t, Feature<?>... features) {
         if (features == null)
             throw new IllegalArgumentException();

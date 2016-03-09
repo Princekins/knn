@@ -17,6 +17,7 @@ public enum PrimitiveType implements FeatureType {
     LONG,
     FLOAT,
     DOUBLE,
+    NUMBER,
     STRING,
     OBJECT,
     VECTOR

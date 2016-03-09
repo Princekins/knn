@@ -1,8 +1,6 @@
 import com.knn.Classification;
 import com.knn.feature.Feature;
-import com.knn.feature.FeatureVector;
 import com.knn.feature.Features;
-import com.knn.util.PrimitiveType;
 
 /**
  * FeatureTest
@@ -12,10 +10,10 @@ import com.knn.util.PrimitiveType;
  */
 public class FeatureTest {
     public static void main(String[] args) {
-        Feature<Double> feature = Features.fromDouble(24.0);
-        Feature<Double> feature2 = Features.fromDouble(48.0);
-        FeatureVector<Class<?>> vector = Features.fromFeatures(PrimitiveType.OBJECT, Object.class, feature);
-        FeatureVector<Class<?>> vector2 = Features.fromFeatures(PrimitiveType.OBJECT, Object.class, feature2);
-        Classification classification = Features.asSpace(vector, vector2).classify(Features.asSet(Features.fromDouble(30)), 4);
+        Feature<?>[] features = {Features.fromNumber(0.0), Features.fromNumber(2.0), Features.fromNumber(4.0), Features.fromNumber(6.0), Features.fromNumber(8.0), Features.fromNumber(10.0)};
+        Classification classification = Features.asSpace(features).classify(Features.asSet(Features.fromNumber(4)), 4);
+        System.out.println("Closest: " + classification.feature().value());
+        for (Feature<?> neighbor : classification.neighbors())
+            System.out.println("Neighbor: " + neighbor.value());
     }
 }
