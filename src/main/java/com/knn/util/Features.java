@@ -1,8 +1,10 @@
-package com.knn.feature;
+package com.knn.util;
 
 import com.knn.FeatureSpace;
-import com.knn.util.FeatureType;
-import com.knn.util.PrimitiveType;
+import com.knn.feature.Feature;
+import com.knn.feature.FeatureSet;
+import com.knn.feature.FeatureVector;
+import com.knn.feature.NumericFeature;
 
 /**
  * Features
@@ -32,21 +34,36 @@ public class Features {
     }
 
     public static NumericFeature<Short> fromNumber(short s) {
-        return new NumericFeature<>(PrimitiveType.NUMBER, s);
+        return fromNumber(PrimitiveType.NUMBER, s);
     }
 
     public static NumericFeature<Integer> fromNumber(int i) {
-        return new NumericFeature<>(PrimitiveType.NUMBER, i);
+        return fromNumber(PrimitiveType.NUMBER, i);
     }
 
     public static NumericFeature<Float> fromNumber(float f) {
-        return new NumericFeature<>(PrimitiveType.NUMBER, f);
+        return fromNumber(PrimitiveType.NUMBER, f);
     }
 
     public static NumericFeature<Double> fromNumber(double d) {
-        return new NumericFeature<>(PrimitiveType.NUMBER, d);
+        return fromNumber(PrimitiveType.NUMBER, d);
     }
 
+    public static NumericFeature<Short> fromNumber(FeatureType type, short s) {
+        return new NumericFeature<>(type, s);
+    }
+
+    public static NumericFeature<Integer> fromNumber(FeatureType type, int i) {
+        return new NumericFeature<>(type, i);
+    }
+
+    public static NumericFeature<Float> fromNumber(FeatureType type, float f) {
+        return new NumericFeature<>(type, f);
+    }
+
+    public static NumericFeature<Double> fromNumber(FeatureType type, double d) {
+        return new NumericFeature<>(type, d);
+    }
 
     public static <T> FeatureVector<T> fromFeatures(FeatureType type, T t, Feature<?>... features) {
         if (features == null)
@@ -65,6 +82,10 @@ public class Features {
         for (Feature<?> feature : features)
             set.set(feature.type(), feature);
         return set;
+    }
+
+    public static StringType asType(String name) {
+        return new StringType(name);
     }
 
     public static <T> double distance(FeatureSet set, Feature<T> feature) {

@@ -2,7 +2,7 @@ package com.knn;
 
 import com.knn.feature.Feature;
 import com.knn.feature.FeatureSet;
-import com.knn.feature.Features;
+import com.knn.util.Features;
 
 import java.util.Arrays;
 

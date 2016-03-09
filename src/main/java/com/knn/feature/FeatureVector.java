@@ -1,6 +1,7 @@
 package com.knn.feature;
 
 import com.knn.util.FeatureType;
+import com.knn.util.Features;
 
 /**
  * FeatureVector
