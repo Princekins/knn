@@ -1,5 +1,6 @@
 package com.knn.feature;
 
+import com.knn.FeatureSpace;
 import com.knn.util.FeatureType;
 import com.knn.util.PrimitiveType;
 
@@ -34,6 +35,10 @@ public class Features {
         if (features == null)
             throw new IllegalArgumentException();
         return new FeatureVector<>(type, t, asSet(features));
+    }
+
+    public static FeatureSpace asSpace(Feature<?>... features) {
+        return new FeatureSpace(features);
     }
 
     public static FeatureSet asSet(Feature<?>... features) {
