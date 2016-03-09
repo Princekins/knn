@@ -46,10 +46,10 @@ public class FeatureVector<T> extends AbstractFeature<T> {
         double sum = 0.0;
         for (Map.Entry<FeatureType, Feature<?>> entry : features.entrySet())
             if (vector.contains(entry.getKey()))
-                sum += entry.getValue().distanceTo(vector.get(entry.getKey()));
+                sum += Math.pow(entry.getValue().distanceTo(vector.get(entry.getKey())), 2);
         for (Map.Entry<FeatureType, Feature<?>> entry : vector.features.entrySet())
             if (!contains(entry.getKey()))
-                sum += Math.abs(vector.get(entry.getKey()).position());
-        return sum;
+                sum += Math.pow(vector.get(entry.getKey()).position(), 2);
+        return Math.sqrt(sum);
     }
 }
