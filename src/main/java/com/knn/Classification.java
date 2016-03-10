@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Classification
  *
  * @author Ian Caffey
- * @version 1.0
+ * @since 1.0
  */
 public class Classification {
     private final Feature<?> feature;

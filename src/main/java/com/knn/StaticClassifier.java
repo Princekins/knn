@@ -10,7 +10,7 @@ import java.util.Arrays;
  * StaticClassifier
  *
  * @author Ian Caffey
- * @version 1.0
+ * @since 1.0
  */
 public class StaticClassifier implements Classifier {
     @Override

@@ -9,7 +9,7 @@ import java.util.Map;
  * FeatureSet
  *
  * @author Ian Caffey
- * @version 1.0
+ * @since 1.0
  */
 public class FeatureSet {
     private final Map<FeatureType, Feature<?>> features = new HashMap<>();

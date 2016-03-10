@@ -6,7 +6,7 @@ import com.knn.util.FeatureType;
  * AbstractFeature
  *
  * @author Ian Caffey
- * @version 1.0
+ * @since 1.0
  */
 public abstract class AbstractFeature<T> implements Feature<T> {
     private final FeatureType type;

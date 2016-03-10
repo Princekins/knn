@@ -4,7 +4,7 @@ package com.knn.util;
  * StringType
  *
  * @author Ian Caffey
- * @version 1.0
+ * @since 1.0
  */
 public class StringType implements FeatureType {
     private final String name;

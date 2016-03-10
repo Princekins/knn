@@ -4,7 +4,7 @@ package com.knn.util;
  * PrimitiveType
  *
  * @author Ian Caffey
- * @version 1.0
+ * @since 1.0
  */
 public enum PrimitiveType implements FeatureType {
     CLASS,
