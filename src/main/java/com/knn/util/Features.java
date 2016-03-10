@@ -17,6 +17,27 @@ public class Features {
 
     }
 
+    public static int compare(FeatureSet set, Feature<?> one, Feature<?> two) {
+        if (set == null)
+            throw new IllegalArgumentException();
+        int value = Double.compare(Features.distance(set, one), Features.distance(set, two));
+        return value != 0 ? value : Integer.compare(intersection(set, one), intersection(set, two));
+    }
+
+    public static int intersection(FeatureSet set, Feature<?> feature) {
+        if (set == null)
+            throw new IllegalArgumentException();
+        if (feature == null)
+            return 0;
+        if (!(feature instanceof FeatureVector<?>))
+            return set.contains(feature.type()) ? 1 : 0;
+        int sum = 0;
+        for (FeatureType type : ((FeatureVector) feature).features().types())
+            if (set.contains(type))
+                sum++;
+        return sum;
+    }
+
     public static NumericFeature<Short> fromShort(short s) {
         return new NumericFeature<>(PrimitiveType.SHORT, s);
     }

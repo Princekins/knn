@@ -19,7 +19,7 @@ public class StaticClassifier implements Classifier {
             throw new IllegalArgumentException();
         if (k == 0)
             return Classification.NONE;
-        Arrays.sort(features, (o1, o2) -> Double.compare(Features.distance(set, o1), Features.distance(set, o2)));
+        Arrays.sort(features, (o1, o2) -> Features.compare(set, o1, o2));
         return new Classification(features[0], Arrays.copyOf(features, k));
     }
 }
