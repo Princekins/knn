@@ -21,7 +21,7 @@ public class FeatureSpace {
     }
 
     public FeatureSpace(Classifier classifier, Feature<?>... features) {
-        if (features == null)
+        if (features == null || features.length == 0)
             throw new IllegalArgumentException();
         this.classifier = classifier;
         this.features = Arrays.copyOf(features, features.length);
