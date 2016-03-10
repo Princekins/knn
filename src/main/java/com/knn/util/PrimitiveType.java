@@ -3,7 +3,7 @@ package com.knn.util;
 /**
  * PrimitiveType
  *
- * @author Ian
+ * @author Ian Caffey
  * @version 1.0
  */
 public enum PrimitiveType implements FeatureType {

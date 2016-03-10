@@ -6,7 +6,7 @@ import com.knn.feature.FeatureSet;
 /**
  * Classifier
  *
- * @author Ian
+ * @author Ian Caffey
  * @version 1.0
  */
 public interface Classifier {

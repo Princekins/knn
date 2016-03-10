@@ -9,7 +9,7 @@ import java.util.Arrays;
 /**
  * StaticClassifier
  *
- * @author Ian
+ * @author Ian Caffey
  * @version 1.0
  */
 public class StaticClassifier implements Classifier {

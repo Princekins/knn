@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * FeatureSpace
  *
- * @author Ian
+ * @author Ian Caffey
  * @version 1.0
  */
 public class FeatureSpace {

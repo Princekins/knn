@@ -3,7 +3,7 @@ package com.knn.util;
 /**
  * StringType
  *
- * @author Ian
+ * @author Ian Caffey
  * @version 1.0
  */
 public class StringType implements FeatureType {

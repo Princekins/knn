@@ -5,7 +5,7 @@ import com.knn.util.FeatureType;
 /**
  * Feature
  *
- * @author Ian
+ * @author Ian Caffey
  * @version 1.0
  */
 public interface Feature<T> {
