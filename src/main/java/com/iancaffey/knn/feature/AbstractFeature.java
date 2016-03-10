@@ -13,6 +13,8 @@ public abstract class AbstractFeature<T> implements Feature<T> {
     private final T value;
 
     protected AbstractFeature(FeatureType type, T value) {
+        if (type == null || value == null)
+            throw new IllegalArgumentException();
         this.type = type;
         this.value = value;
     }
