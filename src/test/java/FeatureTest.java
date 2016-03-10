@@ -1,6 +1,7 @@
 import com.knn.Classification;
 import com.knn.feature.Feature;
 import com.knn.util.Features;
+import com.knn.util.PrimitiveType;
 
 /**
  * FeatureTest
@@ -15,5 +16,8 @@ public class FeatureTest {
         System.out.println("Closest: " + classification.feature().value());
         for (Feature<?> neighbor : classification.neighbors())
             System.out.println("Neighbor: " + neighbor.value());
+
+        //one-liner
+        Features.asSpace(Features.fromFeatures(PrimitiveType.OBJECT, Object.class, Features.fromDouble(24.0)), Features.fromFeatures(PrimitiveType.OBJECT, Object.class, Features.fromDouble(48.0))).classify(Features.asSet(Features.fromDouble(30)), 4);
     }
 }
