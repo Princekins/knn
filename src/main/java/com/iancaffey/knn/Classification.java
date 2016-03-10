@@ -1,6 +1,6 @@
-package com.knn;
+package com.iancaffey.knn;
 
-import com.knn.feature.Feature;
+import com.iancaffey.knn.feature.Feature;
 
 import java.util.Arrays;
 
@@ -11,9 +11,9 @@ import java.util.Arrays;
  * @since 1.0
  */
 public class Classification {
+    public static Classification NONE = new Classification(null);
     private final Feature<?> feature;
     private final Feature<?>[] neighbors;
-    public static Classification NONE = new Classification(null);
 
     public Classification(Feature<?> feature, Feature<?>... neighbors) {
         if (neighbors == null)

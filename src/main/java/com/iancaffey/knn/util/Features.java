@@ -1,10 +1,10 @@
-package com.knn.util;
+package com.iancaffey.knn.util;
 
-import com.knn.FeatureSpace;
-import com.knn.feature.Feature;
-import com.knn.feature.FeatureSet;
-import com.knn.feature.FeatureVector;
-import com.knn.feature.NumericFeature;
+import com.iancaffey.knn.FeatureSpace;
+import com.iancaffey.knn.feature.Feature;
+import com.iancaffey.knn.feature.FeatureSet;
+import com.iancaffey.knn.feature.FeatureVector;
+import com.iancaffey.knn.feature.NumericFeature;
 
 /**
  * Features

@@ -1,7 +1,7 @@
-import com.knn.Classification;
-import com.knn.feature.Feature;
-import com.knn.util.Features;
-import com.knn.util.PrimitiveType;
+import com.iancaffey.knn.Classification;
+import com.iancaffey.knn.feature.Feature;
+import com.iancaffey.knn.util.Features;
+import com.iancaffey.knn.util.PrimitiveType;
 
 /**
  * FeatureTest

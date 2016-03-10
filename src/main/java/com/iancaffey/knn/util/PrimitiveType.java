@@ -1,4 +1,4 @@
-package com.knn.util;
+package com.iancaffey.knn.util;
 
 /**
  * PrimitiveType

@@ -1,6 +1,6 @@
-package com.knn.feature;
+package com.iancaffey.knn.feature;
 
-import com.knn.util.FeatureType;
+import com.iancaffey.knn.util.FeatureType;
 
 import java.util.HashMap;
 import java.util.Map;

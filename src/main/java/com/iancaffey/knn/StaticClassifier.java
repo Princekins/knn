@@ -1,8 +1,8 @@
-package com.knn;
+package com.iancaffey.knn;
 
-import com.knn.feature.Feature;
-import com.knn.feature.FeatureSet;
-import com.knn.util.Features;
+import com.iancaffey.knn.feature.Feature;
+import com.iancaffey.knn.feature.FeatureSet;
+import com.iancaffey.knn.util.Features;
 
 import java.util.Arrays;
 

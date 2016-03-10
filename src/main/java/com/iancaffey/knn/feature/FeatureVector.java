@@ -1,7 +1,7 @@
-package com.knn.feature;
+package com.iancaffey.knn.feature;
 
-import com.knn.util.FeatureType;
-import com.knn.util.Features;
+import com.iancaffey.knn.util.FeatureType;
+import com.iancaffey.knn.util.Features;
 
 /**
  * FeatureVector

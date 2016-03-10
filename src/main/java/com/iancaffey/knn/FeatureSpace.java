@@ -1,7 +1,7 @@
-package com.knn;
+package com.iancaffey.knn;
 
-import com.knn.feature.Feature;
-import com.knn.feature.FeatureSet;
+import com.iancaffey.knn.feature.Feature;
+import com.iancaffey.knn.feature.FeatureSet;
 
 import java.util.Arrays;
 
@@ -12,9 +12,9 @@ import java.util.Arrays;
  * @since 1.0
  */
 public class FeatureSpace {
-    private Classifier classifier;
-    private final Feature<?>[] features;
     private static final Classifier DEFAULT = new StaticClassifier();
+    private final Feature<?>[] features;
+    private Classifier classifier;
 
     public FeatureSpace(Feature<?>... features) {
         this(DEFAULT, features);
