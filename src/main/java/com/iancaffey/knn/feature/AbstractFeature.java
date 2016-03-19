@@ -1,6 +1,9 @@
 package com.iancaffey.knn.feature;
 
+import com.iancaffey.knn.lang.DimensionException;
 import com.iancaffey.knn.util.FeatureType;
+
+import java.util.Objects;
 
 /**
  * AbstractFeature
@@ -40,6 +43,8 @@ public abstract class AbstractFeature<T> implements Feature<T> {
             return Double.MAX_VALUE;
         if (feature instanceof FeatureVector)
             return ((FeatureVector) feature).features().contains(type()) ? distanceTo(((FeatureVector) feature).features().get(type()).position()) : Double.MAX_VALUE;
+        if (!Objects.equals(type(), feature.type()))
+            throw new DimensionException(type, feature.type());
         return distanceTo(feature.position());
     }
 }
