@@ -41,8 +41,11 @@ public abstract class AbstractFeature<T> implements Feature<T> {
     public double distanceTo(Feature<T> feature) {
         if (feature == null)
             return Double.MAX_VALUE;
-        if (feature instanceof FeatureVector)
-            return ((FeatureVector) feature).features().contains(type()) ? distanceTo(((FeatureVector) feature).features().get(type()).position()) : Double.MAX_VALUE;
+        if (feature instanceof FeatureVector) {
+            if (!((FeatureVector) feature).features().contains(type()))
+                throw new DimensionException(type, feature.type());
+            return distanceTo(((FeatureVector) feature).features().get(type()).position());
+        }
         if (!Objects.equals(type(), feature.type()))
             throw new DimensionException(type, feature.type());
         return distanceTo(feature.position());
